@@ -12,9 +12,6 @@ def initialize_index():
     print(f"Starting AI FAQ Assistant for {REPO_OWNER}/{REPO_NAME}")
     print("Initializing data ingestion...")
 
-    def filter(doc):
-        return 'data-engineering' in doc['filename']
-
     pytorch_img_index, pytorch_img_vindex = ingest.index_data(REPO_OWNER, REPO_NAME, filter=filter)
     print("Data indexing completed successfully!")
     return pytorch_img_index, pytorch_img_vindex
