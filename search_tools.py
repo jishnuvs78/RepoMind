@@ -1,7 +1,15 @@
 from sentence_transformers import SentenceTransformer
-from minsearch import Index, VectorSearch
 from typing import List, Any
 import numpy as np
+
+# Cache embedding model at module level to load only once
+_embedding_model = None
+
+def get_embedding_model():
+    global _embedding_model
+    if _embedding_model is None:
+        _embedding_model = SentenceTransformer('multi-qa-distilbert-cos-v1')
+    return _embedding_model
 
 class SearchTool:
     def __init__(
@@ -11,6 +19,7 @@ class SearchTool:
     ):
         self.pytorch_img_index = pytorch_img_index
         self.pytorch_img_vindex = pytorch_img_vindex
+        self.embedding_model = get_embedding_model()
 
     def text_search(self, query: str) -> List[Any]:
         """

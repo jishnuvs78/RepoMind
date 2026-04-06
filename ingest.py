@@ -7,6 +7,15 @@ import numpy as np
 from sentence_transformers import SentenceTransformer
 from minsearch import Index, VectorSearch
 
+# Cache embedding model at module level to load only once
+_embedding_model = None
+
+def get_embedding_model():
+    global _embedding_model
+    if _embedding_model is None:
+        _embedding_model = SentenceTransformer('multi-qa-distilbert-cos-v1')
+    return _embedding_model
+
 def read_repo_data(repo_owner, repo_name):
     
     prefix = 'https://codeload.github.com' 
@@ -96,7 +105,7 @@ def index_data(
 
     pytorch_img_index.fit(pytorch_img_models_chunks)
 
-    embedding_model = SentenceTransformer('multi-qa-distilbert-cos-v1')
+    embedding_model = get_embedding_model()
 
     pytorch_img_embeddings = []
     for d in pytorch_img_models_chunks:
