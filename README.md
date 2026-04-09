@@ -45,6 +45,14 @@ This project builds an AI-powered assistant that:
 ### ⚙️ Setup
 
 ```bash
+# Make sure you have uv
+pip install uv
+
+# Clone this repo
+git clone https://github.com/alexeygrigorev/aihero.git
+cd aihero/code
+
+# Install dependencies
 uv sync
 ```
 
@@ -103,6 +111,39 @@ REPO_NAME = "pytorch-image-models"
 - Easily extensible
 
 ---
+
+## Evaluations
+
+We evaluate the agent using the following criteria:
+
+- `instructions_follow`: The agent followed the user's instructions
+- `instructions_avoid`: The agent avoided doing things it was told not to do  
+- `answer_relevant`: The response directly addresses the user's question  
+- `answer_clear`: The answer is clear and correct  
+- `answer_citations`: The response includes proper citations or sources when required  
+- `completeness`: The response is complete and covers all key aspects of the request
+- `tool_call_search`: Is the search tool invoked? 
+
+We do this in two steps:
+
+- First, we generate synthetic questions (see [`eval/data-gen.ipynb`](eval/data-gen.ipynb))
+- Next, we run our agent on the generated questions and check the criteria (see [`eval/evaluations.ipynb`](eval/evaluations.ipynb))
+
+Current evaluation metrics:
+
+```
+instructions_follow     33.333333
+instructions_avoid     100.000000
+answer_relevant        100.000000
+answer_clear            50.000000
+answer_citations        33.333333
+completeness            50.000000
+tool_call_search       100.000000
+```
+
+The most important metric for this project is `answer_relevant`. This measures whether the system's answer is relevant to the user. It's currently 100%, meaning all answers were relevant. 
+
+Improvements: Our evaluation is currently based on only 6 questions. We need to collect more data for a more comprehensive evaluation set.
 
 ## 6. Tests
 
