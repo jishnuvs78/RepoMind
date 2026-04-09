@@ -82,11 +82,23 @@ GROQ_API_KEY=your_key_here
 uv run python main.py
 ```
 
+This opens an interactive CLI environment. You can ask the conversational agent any question about the course.
+
+<img src="gif/Demo-2.gif" />
+
+Type `stop` to exit.
+
 ### 🌐 Streamlit
 
 ```bash
 uv run streamlit run app.py
 ```
+
+<img src="gif/Demo-1.gif" />
+
+This launches a Streamlit app. You can chat with the assistant in your browser.  
+
+The app is available at [http://localhost:8501](http://localhost:8501).
 
 ### ⚙️ Config
 
