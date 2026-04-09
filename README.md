@@ -49,8 +49,7 @@ This project builds an AI-powered assistant that:
 pip install uv
 
 # Clone this repo
-git clone https://github.com/alexeygrigorev/aihero.git
-cd aihero/code
+git clone https://github.com/jishnuvs78/RepoMind.git
 
 # Install dependencies
 uv sync
