@@ -23,9 +23,7 @@ class SearchTool:
 
     def text_search(self, query: str) -> List[Any]:
         """
-        Search the PyTorch Image Models (timm) repository using keyword-based search.
-
-        Use this for exact matches like model names (e.g., ResNet, EfficientNet, MobileNet).
+        Search the repository using text-based search.
 
         Args:
             query (str): The search query string.
@@ -37,9 +35,7 @@ class SearchTool:
 
     def vector_search(self, query: str) -> List[Any]:
         """
-        Search the PyTorch Image Models repository using semantic (vector) search.
-
-        Use this for conceptual queries like "CNN architectures", "image models", etc.
+        Search the repository using semantic (vector) search.
 
         Args:
             query (str): The search query string.
@@ -52,14 +48,14 @@ class SearchTool:
 
     def search(self, query: str) -> List[Any]:
         """
-        Perform hybrid search on the PyTorch Image Models repository.
-        Combines keyword-based and semantic search for best results.
+        Perform hybrid search on the repository.
+        Combines text-based and semantic (vector) search for best results.
 
         Args:
             query (str): The search query string.
 
         Returns:
-            List[Any]: A combined deduplicated list of relevant results.
+            List[Any]: A combined list of relevant results.
         """
         text_results = self.text_search(query)
         vector_results = self.vector_search(query)

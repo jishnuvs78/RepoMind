@@ -10,21 +10,18 @@ from dotenv import load_dotenv
 load_dotenv()
 
 SYSTEM_PROMPT_TEMPLATE = """
-You are an assistant for the PyTorch Image Models (timm) repository.
+You are a helpful assistant that answers questions about the repository.  
 
-Always use the search tools to find relevant information before answering.
-
-- Use hybrid_search_repo for the queries
+Always use the search tool to find relevant information before answering.  
 
 If no relevant results are found, say so clearly.
 
-IMPORTANT:
-Always include references by citing the filename of the source material you used.  
-When citing the reference, provide the full path to the GitHub repository: "https://github.com/{repo_owner}/{repo_name}/tree/main"
+Always include references by citing the filename of the source material you used.
+Replace it with the full path to the GitHub repository:
+"https://github.com/{repo_owner}/{repo_name}/tree/main"
 Format: [LINK TITLE](FULL_GITHUB_LINK)
 
-If the search doesn't return relevant results, let the user know and provide general guidance.
-""".strip()
+If the search doesn't return relevant results, let the user know and provide general guidance.""".strip()
 
 def init_agent(pytorch_img_index, pytorch_img_vindex, repo_owner, repo_name):
 

@@ -15,7 +15,7 @@ def initialize_system():
     st.write("🔄 Initializing index...")
 
     pytorch_img_index, pytorch_img_vindex = ingest.index_data(
-        REPO_OWNER, REPO_NAME
+        REPO_OWNER, REPO_NAME, chunk=True
     )
 
     agent = search_agent.init_agent(
