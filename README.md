@@ -84,7 +84,7 @@ uv run python main.py
 
 This opens an interactive CLI environment. You can ask the conversational agent any question about the course.
 
-<img src="gif/Demo-2.mp4" />
+<img src="gif/Demo-2.gif" />
 
 Type `stop` to exit.
 
@@ -94,7 +94,7 @@ Type `stop` to exit.
 uv run streamlit run app.py
 ```
 
-<img src="gif/Demo-1.mp4" />
+<img src="gif/Demo-1.gif" />
 
 This launches a Streamlit app. You can chat with the assistant in your browser.  
 
